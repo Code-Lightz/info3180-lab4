@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<h1 class="page-header">List of Files</h1>
+
+{% include 'flash_messages.html' %}
+
+<div>
+    <ul>
+        {% for file in fileList %}
+            <li>{{file}}</li>
+        {%endfor%}
+    </ul>
+</div>
+
+{% endblock %}

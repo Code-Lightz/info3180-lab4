@@ -11,6 +11,15 @@ from app.forms import UploadForm
 from flask import render_template, request, redirect, url_for, flash, session, abort
 from werkzeug.utils import secure_filename
 
+def get_uploaded_images():
+    rootdir = os.getcwd()
+    path = str(rootdir) + "\\app\\static\\uploads"
+    fileList = []
+    for subdir, dirs, files in os.walk(path):
+        for file in files:
+            fileList.append(os.path.join(subdir, file))
+    fileList.pop(0)
+    return fileList
 
 ###
 # Routing for your application.
@@ -51,6 +60,10 @@ def upload():
 
     return render_template('upload.html')
 
+@app.route('/files')
+def files():
+    fileList = get_uploaded_images()
+    return render_template('files.html', fileList = fileList)
 
 @app.route('/login', methods=['POST', 'GET'])
 def login():
