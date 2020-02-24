@@ -16,8 +16,9 @@ def get_uploaded_images():
     path = str(rootdir) + "\\app\\static\\uploads"
     fileList = []
     for subdir, dirs, files in os.walk(path):
+        files = [f for f in files]
         for file in files:
-            fileList.append(os.path.join(subdir, file))
+            fileList.append(file)
     fileList.pop(0)
     return fileList
 

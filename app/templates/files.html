@@ -7,9 +7,13 @@
 
 <div>
     <ul>
-        {% for file in fileList %}
-            <li>{{file}}</li>
-        {%endfor%}
+        <div class="wrapper">
+            {% for file in fileList %}
+                <li>
+                    <img src="{{ url_for('static', filename='uploads/'+file) }}">
+                </li>
+            {%endfor%}
+        </div>
     </ul>
 </div>
 
