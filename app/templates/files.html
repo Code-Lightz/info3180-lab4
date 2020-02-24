@@ -9,7 +9,7 @@
     <ul>
         <div class="wrapper">
             {% for file in fileList %}
-                <li>
+                <li class = "pics">
                     <img src="{{ url_for('static', filename='uploads/'+file) }}">
                 </li>
             {%endfor%}
